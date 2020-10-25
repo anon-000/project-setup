@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash 
 
 
 # Created by Auro on 25th October at 1:17AM
@@ -11,17 +11,35 @@
 
 
 #variables
-REPO_NAME=''
+REPO_NAME="sample name"
 PACKAGE_NAME=''
 APP_NAME=''
 REPO_URL=''
 
 # gets boilerplate code and process it
-get_code_and_process(){
-    git clone https://gitlab.com/e-commerce-basic/e-commerce-flutter.git
+get_code_and_rename(){
+    #git clone https://gitlab.com/e-commerce-basic/e-commerce-flutter.git
+    oldFolderName=`ls | grep e-commerce-flutter | awk '{print $1;}'`
+    echo $oldFolderName
+    mv $oldFolderName "$REPO_NAME"
+    cd "${REPO_NAME}"
+}
+
+change_package_name(){
+    pass
+}
+
+change_app_name(){
+    pass
 }
 
 
-echo Hellow World
+# project details as user input
+#take_project_details(){}
 
 
+echo ----------start------------
+
+get_code_and_rename
+
+echo ----------end------------
