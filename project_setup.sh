@@ -9,8 +9,8 @@
 # Toh Chaliyeeeee Shuru Karte hein ...  
 # bdw Happy Dussehra :)
 
-#variables
-REPO_NAME="sample name"
+# variables
+REPO_NAME="pi-test"
 PACKAGE_NAME='in.student.pitest'
 APP_NAME='Pi Test'
 REPO_URL=''
@@ -23,7 +23,6 @@ MANIFEST_PATH3='android/app/src/profile' #profile
 PKG_FOLDER_PATH='android/app/src/main/kotlin' #ex - in/student/pitest
 KT_PATH='android/app/src/main/kotlin/com/smarttersstudio/ecommerceapp'
 
-
 # project details as user input
 take_project_details(){
     pass
@@ -33,11 +32,9 @@ take_project_details(){
 get_code_and_rename(){
     #git clone https://gitlab.com/e-commerce-basic/e-commerce-flutter.git
     oldFolderName=`ls | grep e-commerce-flutter | awk '{print $1;}'`
-    echo $oldFolderName
     mv $oldFolderName "$REPO_NAME"
     cd "${REPO_NAME}"
     ROOT_PATH=`pwd`
-    echo $ROOT_PATH
     change_package_name
 }
 
@@ -91,21 +88,17 @@ change_package_name(){
 
     # update main.dart
     echo "...main.dart update starts"
-    sed -i .bak "s/"Flutter Demo"/${APP_NAME}/" lib\/main.dart
+    sed -i .bak "s/"Flutter\ Demo"/${APP_NAME}/" lib\/main.dart
     rm -rf lib\/main.dart.bak
     echo "...main.dart update done"
 
     # update all imports
     echo "...imports update starts"
+    find . -type f -name "*.dart" -exec sed -i .bak "s/${OLD_F_NAMES[2]}/${NEW_F_NAMES[2]}/" {} +
+    find . -name "*.dart.bak" -type f -delete
+    echo "...imports update done"
 
-    
 }
-
-# change app name in main.dart and package name in pubspec.yaml
-change_app_name(){
-    pass
-}
-
 
 
 
