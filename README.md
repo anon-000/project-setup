@@ -11,7 +11,7 @@ I'm also working on it to make it more powerful :)
 Let's see what happens !
 
 
-## Next Targets | TO-DO Things
+### TO-DO Things
 - [ ] Error Handling
 - [ ] Flow Betterment
 - [ ] Git push to new repo
