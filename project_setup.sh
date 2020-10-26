@@ -46,14 +46,22 @@ get_code_and_rename(){
 # in all manifests, mainactivity.kt, application.kt, folder name in kotlin and all imports
 change_package_name(){
     # update in build.gradle(android/app/build.gradle)
-    echo ".....gradle update starts"
+    echo "...gradle update starts"
     sed -i .bak "s/${BOILER_PKG_NAME}/${PACKAGE_NAME}/" $GRADLE_PATH\/build.gradle
     rm -rf $GRADLE_PATH\/build.gradle.bak
-    echo ".....gradle update done"
+    echo "...gradle update done"
     # update in all manifests( debug | main | profile )
+    echo "...manifests update starts"
+    sed -i .bak "s/${BOILER_PKG_NAME}/${PACKAGE_NAME}/" $MANIFEST_PATH1\/AndroidManifest.xml
+    rm -rf $MANIFEST_PATH1\/AndroidManifest.xml.bak
+    sed -i .bak "s/${BOILER_PKG_NAME}/${PACKAGE_NAME}/" $MANIFEST_PATH2\/AndroidManifest.xml
+    rm -rf $MANIFEST_PATH2\/AndroidManifest.xml.bak
+    sed -i .bak "s/${BOILER_PKG_NAME}/${PACKAGE_NAME}/" $MANIFEST_PATH3\/AndroidManifest.xml
+    rm -rf $MANIFEST_PATH3\/AndroidManifest.xml.bak
+    echo "...manifests update ends"
+    # update in Application.kt and MainActivity.kt
+    TEMP_PKG_NAME=$PACKAGE_NAME
     
-
-
 }
 
 # change app name in main.dart and package name in pubspec.yaml
