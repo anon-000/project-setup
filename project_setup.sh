@@ -35,7 +35,11 @@ get_code_and_rename(){
     mv $oldFolderName "$REPO_NAME"
     cd "${REPO_NAME}"
     ROOT_PATH=`pwd`
-    change_package_name
+}
+
+remove_unnecessary_files(){
+    # removes old .git , .gitignore, web, macos, linux, windows, .idea, README.md
+    rm -rf .git .gitignore web macos windows linux .idea README.md
 }
 
 # change package name everywhere 
@@ -105,5 +109,7 @@ change_package_name(){
 echo ----------start------------
 
 get_code_and_rename
+remove_unnecessary_files
+change_package_name
 
 echo ----------end------------
