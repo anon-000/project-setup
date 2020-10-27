@@ -16,6 +16,7 @@ APP_NAME='Demo Test'
 NEW_REPO_URL='https://gitlab.com/vsebino/vsebino-1.git'
 ROOT_PATH=''
 BOILER_PKG_NAME='com.smarttersstudio.ecommerceapp'
+BOILER_REPO_URL='https://gitlab.com/e-commerce-basic/e-commerce-flutter.git'
 GRADLE_PATH='android/app'
 MANIFEST_PATH1='android/app/src/debug' #debug
 MANIFEST_PATH2='android/app/src/main' #main
@@ -24,13 +25,32 @@ PKG_FOLDER_PATH='android/app/src/main/kotlin' #ex - in/student/pitest
 KT_PATH='android/app/src/main/kotlin/com/smarttersstudio/ecommerceapp'
 
 # project details as user input
+# 1. NEW REPO NAME
+# 2. NEW REPO URL
+# 3. NEW PACKAGE NAME
+# 4. NEW APP NAME
 take_project_details(){
-    pass
+    clear
+    echo -e '\n'
+    echo "Hey Bruh ! Before proceeding let me know something about your new project :)>"
+    echo "----------------------------------------------------"
+    echo "Enter your new Repo name : (Ex. e-commerce-flutter)"
+    read REPO_NAME
+    echo "----------------------------------------------------"
+    echo "Enter your new Repo URL : (Ex. https://gitlab.com/e-commerce-basic/e-commerce-flutter.git)"
+    read NEW_REPO_URL
+    echo "----------------------------------------------------"
+    echo "Enter your new Package name : (Ex. com.smarttersstudio.ecommerceapp)"
+    read PACKAGE_NAME
+    echo "----------------------------------------------------"
+    echo "Enter your new App name : (Ex. E Commerce App)"
+    read APP_NAME
+    echo "----------------------------------------------------"
 }
 
 # gets boilerplate code and process it
 get_code_and_rename(){
-    git clone https://gitlab.com/e-commerce-basic/e-commerce-flutter.git
+    git clone $BOILER_REPO_URL
     oldFolderName=`ls | grep e-commerce-flutter | awk '{print $1;}'`
     mv $oldFolderName "$REPO_NAME"
     cd "${REPO_NAME}"
@@ -114,10 +134,9 @@ push_to_new_repo(){
 }
 
 
-
-
 echo ----------start------------
 
+take_project_details
 get_code_and_rename
 remove_unnecessary_files
 change_package_name

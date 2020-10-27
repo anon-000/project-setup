@@ -14,5 +14,4 @@ Let's see what happens !
 ### TO-DO Things
 - [ ] Error Handling
 - [ ] Flow Betterment
-- [ ] Git push to new repo
 - [ ] Create a release build for both android and ios
