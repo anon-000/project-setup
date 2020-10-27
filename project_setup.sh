@@ -143,3 +143,7 @@ change_package_name
 push_to_new_repo
 
 echo ----------end------------
+
+# jaha hau .... heiglaaaaa... mane first module ta au... dekhajau agaku karichaliba dhire dhire ahuri features...
+#  28 October____ Time > 1:30 AM
+#  Good night && Sweet Dreams :)
