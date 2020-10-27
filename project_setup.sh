@@ -32,7 +32,7 @@ KT_PATH='android/app/src/main/kotlin/com/smarttersstudio/ecommerceapp'
 take_project_details(){
     clear
     echo -e '\n'
-    echo "Hey Bruh ! Before proceeding let me know something about your new project :)>"
+    echo ":::::: Welcome To One Click Project Setup :)> ::::::"
     echo "----------------------------------------------------"
     echo "Enter your new Repo name : (Ex. e-commerce-flutter)"
     read REPO_NAME
