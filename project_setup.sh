@@ -10,10 +10,10 @@
 # bdw Happy Dussehra :)
 
 # variables
-REPO_NAME="pi-test"
-PACKAGE_NAME='in.student.pitest'
-APP_NAME='Pi Test'
-REPO_URL=''
+REPO_NAME="demo-test"
+PACKAGE_NAME='in.student.demotest'
+APP_NAME='Demo Test'
+NEW_REPO_URL='https://gitlab.com/vsebino/vsebino-1.git'
 ROOT_PATH=''
 BOILER_PKG_NAME='com.smarttersstudio.ecommerceapp'
 GRADLE_PATH='android/app'
@@ -30,7 +30,7 @@ take_project_details(){
 
 # gets boilerplate code and process it
 get_code_and_rename(){
-    #git clone https://gitlab.com/e-commerce-basic/e-commerce-flutter.git
+    git clone https://gitlab.com/e-commerce-basic/e-commerce-flutter.git
     oldFolderName=`ls | grep e-commerce-flutter | awk '{print $1;}'`
     mv $oldFolderName "$REPO_NAME"
     cd "${REPO_NAME}"
@@ -104,6 +104,16 @@ change_package_name(){
 
 }
 
+# connects this project to a newly created repo and pushes code into that repo
+push_to_new_repo(){
+    git init
+    git remote add origin $NEW_REPO_URL
+    git add .
+    git commit -m "Initial commit"
+    git push -u origin master
+}
+
+
 
 
 echo ----------start------------
@@ -111,5 +121,6 @@ echo ----------start------------
 get_code_and_rename
 remove_unnecessary_files
 change_package_name
+push_to_new_repo
 
 echo ----------end------------
