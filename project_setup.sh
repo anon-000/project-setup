@@ -122,6 +122,11 @@ change_package_name(){
     find . -name "*.dart.bak" -type f -delete
     echo "...imports update done"
 
+    # update app icon name
+    echo "...app label name update starts"
+    sed -i .bak "s/${OLD_F_NAMES[2]}/${APP_NAME}/" $MANIFEST_PATH2\/AndroidManifest.xml
+    rm -rf $MANIFEST_PATH2\/AndroidManifest.xml.bak
+    echo "...app label name update done"
 }
 
 # connects this project to a newly created repo and pushes code into that repo
